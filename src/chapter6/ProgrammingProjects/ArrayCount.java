@@ -31,8 +31,11 @@ public class ArrayCount {
 			
 			if (this.partiallyFilledArray[i] > max){
 				
+				temp = this.partiallyFilledArray[i];
+				
 				max = this.partiallyFilledArray[i];
 				indexOfMax = i;
+				
 				
 			}
 		}
