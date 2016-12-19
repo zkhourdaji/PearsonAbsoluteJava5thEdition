@@ -15,6 +15,7 @@ public class BoxOfProduce {
 	private boolean containsSalsaVergeFlyer = false;
 
 	private String bundle1, bundle2, bundle3;
+	
 	// works for java 8, doesnt seem to work for java 7
 	List<String> lines = Files.readAllLines(
 			Paths.get("src/chapter4/ProgrammingProjects/fruits"));

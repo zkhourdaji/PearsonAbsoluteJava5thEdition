@@ -7,8 +7,6 @@ public class DeleteRepeats {
 		char[] charArray = new char[10];
 		int numberUsed = 0;
 
-
-
 		charArray[0] = 'a';
 		charArray[1] = 'a';
 		charArray[2] = 'd';
