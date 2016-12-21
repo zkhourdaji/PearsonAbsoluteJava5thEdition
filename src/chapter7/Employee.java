@@ -68,9 +68,14 @@ public class Employee {
 	}
 	
 	
-	public boolean equals(Employee otherEmployee) {
+	public boolean equals(Object obj) {
 		
-		return (this.name.equals(otherEmployee.name) && hireDate.equals(otherEmployee));
+		if (this.getClass() == obj.getClass()){
+			Employee otherEmployee = (Employee) obj;
+			return (this.name.equals(otherEmployee.name) && hireDate.equals(otherEmployee));
+
+		}
+		return false;
 		
 	}
 	

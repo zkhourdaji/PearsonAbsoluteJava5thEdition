@@ -59,9 +59,14 @@ public class SalariedEmployee extends Employee {
 				+ "\n$" + this.salary + " per year.");
 	}
 	
-	public boolean equals(SalariedEmployee otherObject){
-		return (this.getName().equals(otherObject.getName())
-				&& this.getHireDate().equals(otherObject.getHireDate())
-				&& this.salary == otherObject.salary);
+	public boolean equals(Object obj){
+		
+		if (this.getClass() == obj.getClass()){
+			SalariedEmployee otherEmployee = (SalariedEmployee) obj;
+		return (this.getName().equals(otherEmployee.getName())
+				&& this.getHireDate().equals(otherEmployee.getHireDate())
+				&& this.salary == otherEmployee.salary);
+		}
+		return false;
 	}
 }
