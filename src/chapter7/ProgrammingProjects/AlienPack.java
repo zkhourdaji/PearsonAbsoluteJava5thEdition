@@ -49,5 +49,34 @@ public class AlienPack {
 		}
 		return totalDamage;
 	}
+	
+	@Override
+	public String toString() {
+		
+		String returnedString = "";
+		
+		for (int i = 0; i < this.aliens.length; i++){
+			returnedString += this.aliens[i].toString() + "\n";
+		}
+		
+		return returnedString;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		
+		if (this.getClass() == obj.getClass()){
+			AlienPack otherAlienPack = (AlienPack) obj;
+			if (this.aliens.length != otherAlienPack.aliens.length)
+				return false;
+			
+			for (int i = 0; i < this.aliens.length; i++){
+				if (!this.aliens[i].equals(otherAlienPack.aliens[i]))
+						return false;
+			}
+		}
+		return false;
+	}
+	
 
 }

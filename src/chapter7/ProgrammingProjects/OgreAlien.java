@@ -14,7 +14,24 @@ public class OgreAlien extends Alien{
 		return this.damage;
 	}
 
+
+	@Override
+	public String toString() {
+		return super.toString() + " Damage: " + this.damage;
+	}
 	
+	@Override
+	public boolean equals(Object obj) {
+		
+		if (this.getClass() == obj.getClass()){
+			OgreAlien otherOgreAlien = (OgreAlien) obj;
+			
+			return (super.equals(otherOgreAlien) && this.damage == otherOgreAlien.damage);
+			
+		}
+			return false;
+			
+	}
 	
 
 }
