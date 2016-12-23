@@ -8,6 +8,9 @@ public class Date {
 	private int day;
 	private int year; //a four digit number.
 
+	
+	
+	
 	public Date() {
 
 		month = "January";
@@ -136,6 +139,23 @@ public class Date {
 
 		return (month + " " + day + ", " + year);
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		
+		if (obj == null)
+			return false;
+		else if (this.getClass() != obj.getClass())
+			return false;
+		else{
+			Date otherDate = (Date) obj;
+			return (this.day == otherDate.day
+					&& this.year == otherDate.year
+					&& this.month.equals(otherDate.month));
+			
+		}
+	}
+	
 
 	public Boolean precedes (Date otherDate){
 		return ( (year < otherDate.year)
