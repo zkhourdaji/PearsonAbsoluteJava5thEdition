@@ -1,4 +1,4 @@
-package chapter4.ProgrammingProjects;
+package chapter4.programmingProjects;
 
 import java.io.IOException;
 import java.nio.file.Files;

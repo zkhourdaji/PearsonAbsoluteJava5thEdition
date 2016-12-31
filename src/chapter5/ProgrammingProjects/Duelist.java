@@ -1,4 +1,4 @@
-package chapter5.ProgrammingProjects;
+package chapter5.programmingProjects;
 
 import java.util.Random;
 

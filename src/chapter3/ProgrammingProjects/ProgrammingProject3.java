@@ -1,4 +1,4 @@
-package chapter3.ProgrammingProjects;
+package chapter3.programmingProjects;
 
 import java.util.Scanner;
 

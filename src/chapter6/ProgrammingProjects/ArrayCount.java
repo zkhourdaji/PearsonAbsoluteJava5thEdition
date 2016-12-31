@@ -1,85 +1,118 @@
-package chapter6.ProgrammingProjects;
+package chapter6.programmingProjects;
 
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class ArrayCount {
 
-	int[] partiallyFilledArray;
+	private int[] partiallyFilledArray;
+	private int numberUsed;
+	private int[] repetitions; // after the array get sorted
 	
 	
-	public ArrayCount(int [] array) {
-		this.partiallyFilledArray = array;
-		
-	}
 	
 	public ArrayCount() {
 		
+		this.partiallyFilledArray = new int[50];
+		this.repetitions = new int[50];
 	}
 	
 	
 	
-	private void sortArrayFromLargest(int numberUsed){
+	public int[] getPartiallyFilledArray() {
 		
-		int max = this.partiallyFilledArray[0];
-		int indexOfMax = 0;
+		int [] copy = new int[this.partiallyFilledArray.length];
+		System.arraycopy(this.partiallyFilledArray, 0, 
+				copy, 0, this.partiallyFilledArray.length);
+		return  copy;
+	}
+
+	public void setPartiallyFilledArray(int[] partiallyFilledArray) {
+		this.partiallyFilledArray = partiallyFilledArray;
+	}
+
+	public int[] sortPartialArrayDescending(){
 		
-		//int indexOfNextSmallest;
+		int i, j, maxValue, maxIndex, temp;
 		
-		int temp = 0;
-		
-		for (int i = 0; i < numberUsed; i++){
+		for (i = 0; i < this.partiallyFilledArray.length; i++){
 			
-			if (this.partiallyFilledArray[i] > max){
+			maxValue = this.partiallyFilledArray[i];
+			maxIndex = i;
+			
+			for (j = i; j < this.numberUsed; j++){
+				if (this.partiallyFilledArray[j] > maxValue){
+					maxValue = this.partiallyFilledArray[j];
+					maxIndex = j;
+				}
+			}
+			
+			if (maxValue > this.partiallyFilledArray[i]){
 				
 				temp = this.partiallyFilledArray[i];
-				
-				max = this.partiallyFilledArray[i];
-				indexOfMax = i;
-				
-				
+				this.partiallyFilledArray[i] = this.partiallyFilledArray[maxIndex];
+				this.partiallyFilledArray[maxIndex] = temp;
 			}
+			
 		}
+		return this.partiallyFilledArray;
+		
+	}
+	
+	private void findRepetitions(){
+		
+		
+		
 	}
 	
 	
-	private void interchange(int i, int j){
+	public void displayArray(){
 		
-		int temp;
-		temp = this.partiallyFilledArray[i];
-		this.partiallyFilledArray[i] = this.partiallyFilledArray[j];
-		this.partiallyFilledArray[j] = temp;
-	}
-	private int findNumberOfRepeatedNumbersAtIndex(int index, int numberUsed){
-		
-		int returnedNumber = 0;
-		
+		this.findRepetitions();
 		for (int i = 0; i < numberUsed; i++){
-			if ((this.partiallyFilledArray[i] == this.partiallyFilledArray[index])
-					&& i != index)
-				returnedNumber++;
+			System.out.print(this.partiallyFilledArray[i] + " ");
 		}
-		
-		return returnedNumber;
+		System.out.println();
+		for (int i = 0; i < numberUsed; i++){
+			System.out.print(this.repetitions[i] + " ");
+		}
+		System.out.println();
 	}
 	
 	public void fillArray(){
 		
+		StringTokenizer st;
 		Scanner keyboard = new Scanner(System.in);
-		System.out.println("Input numbers up to 50 numbers");
-		System.out.println("Mark the end with -999");
 		
-		int number;
-		int index = 0;
 		
-		do{
-			number = keyboard.nextInt();
-			this.partiallyFilledArray[index] = number;
-			index++;
+		System.out.println("input numbers (up to 50 numbers) on the same line");
+		st = new StringTokenizer(keyboard.nextLine());
+		
+		if (st.countTokens() > 50)
+			System.out.println("only 50 is allowed, " + (st.countTokens() - 50) 
+					+ " numbers wont be read");
+		else{
+			System.out.println("you entered " + st.countTokens());
+		}
+		
+		for (int i = 0; i < this.partiallyFilledArray.length; i++){
 			
-		}while(number != -999 && index < 50 );
+			if (st.hasMoreTokens()){
+				String currentToken = st.nextToken();
+				try {
+					this.partiallyFilledArray[i] = Integer.parseInt(currentToken);
+					this.numberUsed++;
+				} catch (NumberFormatException e) {
+					System.out.println("Error: '" + currentToken + "' is not a number");
+					
+				}
+			}
+			else
+				break;
+		}
 		
+		keyboard.close();
 		
 	}
-	
 	
 }

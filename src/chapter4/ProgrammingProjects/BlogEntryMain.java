@@ -1,4 +1,4 @@
-package chapter4.ProgrammingProjects;
+package chapter4.programmingProjects;
 
 import chapter4.Date;
 

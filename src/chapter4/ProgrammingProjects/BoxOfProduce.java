@@ -1,4 +1,4 @@
-package chapter4.ProgrammingProjects;
+package chapter4.programmingProjects;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -18,7 +18,7 @@ public class BoxOfProduce {
 	
 	// works for java 8, doesnt seem to work for java 7
 	List<String> lines = Files.readAllLines(
-			Paths.get("src/chapter4/ProgrammingProjects/fruits"));
+			Paths.get("src/chapter4/ProgrammingProjects/fruits"), null);
 
 	public BoxOfProduce() throws IOException {
 

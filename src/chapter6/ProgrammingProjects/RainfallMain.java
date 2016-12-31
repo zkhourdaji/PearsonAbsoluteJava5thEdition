@@ -1,4 +1,4 @@
-package chapter6.ProgrammingProjects;
+package chapter6.programmingProjects;
 
 public class RainfallMain {
 

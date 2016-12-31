@@ -1,4 +1,4 @@
-package chapter6.ProgrammingProjects;
+package chapter6.programmingProjects;
 
 import java.util.Random;
 import java.util.Scanner;
