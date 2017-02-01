@@ -1,0 +1,8 @@
+Triangle project todo list:
+
+1) to ask the user if they really want to quit after hitting
+    the X button before exiting. Using window listener
+    
+2)	Write a Triangle logic class that generates the points.
+	This class will have a loop that generates all the points
+	to draw.	
